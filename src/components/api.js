@@ -1,4 +1,4 @@
-const local = true
+const local = false
 const host = local ? 'http://localhost:9000' : 'https://api.inpd.com.br'
 
 export function resolve(url) {
