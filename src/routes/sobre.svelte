@@ -51,8 +51,8 @@
             name   : 'Rafael Reis', 
             title  : 'Diretor Financeiro', 
             bio    : 'Advogado Especialista em Privacidade e Proteção de Dados e Professor. Coordenador do grupo permanente de discussão sobre Privacidade e Proteção de Dados e membro da Comissão de Inovação e Gestão da OAB/PR. Pós-Graduado em Direito Digital e Compliance no IBMEC. Certified Information Privacy Professional/Europe (IAPP). Atualmente cursa o programa de pós-graduação (LLM) em Direito Empresarial na FGV.', 
-            in     : '', 
-            avatar : '' 
+            in     : 'https://www.linkedin.com/in/oreis/', 
+            avatar : '/directors/reis.png' 
         },
     ];
     
