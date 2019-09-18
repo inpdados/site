@@ -30,5 +30,48 @@
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
 	%sapper.scripts%
+
+    <script>
+        (function(win, doc) {
+    
+            function unique() {
+                var id = 'dogma-' + Math.random().toString(36).substr(2, 9);
+                if(!doc.getElementById(id)) {
+                    return id;
+                } else {
+                    return unique();
+                }
+            }
+    
+            function get(url, fn) {
+                return fetch(url, {"credentials": "include"})
+                    .then(function(res) { return res.text() })
+                    .then(function(it)  { return fn(it)     });
+            }
+    
+            function injectTheBanner() {
+                var id = unique();
+                return get('https://dogma.inpd.com.br/donut/banner/ST9DyMiZ4f2XzDKEcUbKkCU9WgeMyFxx?id='+id, function(text) {
+                    var el       = doc.createElement('div');
+                    el.innerHTML = text;
+                    doc.body.appendChild(el);
+                    return id;
+                })
+    
+            }
+    
+            function injectTheScript(id) {
+                var el = doc.createElement('script');
+                el.setAttribute('src', 'https://dogma.inpd.com.br/donut/banner/js?id='+id);
+                doc.head.appendChild(el)
+                return id;
+            }
+    
+            injectTheBanner()
+                .then  (injectTheScript)
+                .catch (function(e) { console.log("Dogma Banner Error: " + e) });
+    
+        })(window, document);
+    </script>
 </body>
 </html>
